@@ -1,0 +1,12 @@
+[tool.pysen.lint]
+enable_black = true
+enable_mypy = true
+mypy_preset = "strict"
+line_length = 100
+py_version = "py37"
+isort_known_third_party = ["numpy"]
+isort_force_grid_wrap = 1
+
+
+[[tool.pysen.lint.mypy_targets]]
+  paths = ["."]
