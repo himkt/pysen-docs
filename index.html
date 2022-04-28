@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Welcome to pysen’s documentation! &#8212; pysen  documentation</title>
+    <title>How to configure pysen &#8212; pysen  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -156,7 +156,7 @@
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Welcome to pysen’s documentation!
+   How to configure pysen
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -190,10 +190,11 @@
               
               <div>
                 
-  <section id="welcome-to-pysen-s-documentation">
-<h1>Welcome to pysen’s documentation!<a class="headerlink" href="#welcome-to-pysen-s-documentation" title="Permalink to this headline">#</a></h1>
+  <section id="how-to-configure-pysen">
+<h1>How to configure pysen<a class="headerlink" href="#how-to-configure-pysen" title="Permalink to this headline">#</a></h1>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pysen]</span><span class="w"></span>
 <span class="n">version</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0.10&quot;</span><span class="w"></span>
+<span class="n">builder</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;lint.py&quot;</span><span class="w"></span>
 
 <span class="k">[tool.pysen.lint]</span><span class="w"></span>
 <span class="n">enable_black</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
@@ -209,22 +210,36 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>For <code class="docutils literal notranslate"><span class="pre">[tool.pysen]</span></code>, you can specify entries available in <a class="reference internal" href="reference/pyproject_model.html#pysen.pyproject_model.Config" title="pysen.pyproject_model.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">Config</span></code></a></p></li>
-<li><p>For <code class="docutils literal notranslate"><span class="pre">[tool.pysen.lint]</span></code>, <a class="reference internal" href="reference/pyproject_model.html#pysen.pyproject_model.LintConfig" title="pysen.pyproject_model.LintConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">LintConfig</span></code></a></p></li>
-<li><p>You can instead specify <code class="docutils literal notranslate"><span class="pre">[[tool.pysen.lint.{entry_name}]]</span></code>.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">tool.pysen</span></code> corresponds to <a class="reference internal" href="reference/pyproject_model.html#pysen.pyproject_model.Config" title="pysen.pyproject_model.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">pysen.pyproject_model.Config</span></code></a></dt><dd><ul>
+<li><p>For example, <code class="docutils literal notranslate"><span class="pre">builder</span></code> under <code class="docutils literal notranslate"><span class="pre">[tool.pysen]</span></code> passes to <a class="reference internal" href="reference/pyproject_model.html#pysen.pyproject_model.Config" title="pysen.pyproject_model.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">pysen.pyproject_model.Config</span></code></a></p></li>
 </ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">tool.pysen.lint</span></code> corresponds to <a class="reference internal" href="reference/pyproject_model.html#pysen.pyproject_model.LintConfig" title="pysen.pyproject_model.LintConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">pysen.pyproject_model.LintConfig</span></code></a></dt><dd><ul>
+<li><p>If you specify <code class="docutils literal notranslate"><span class="pre">line_length</span></code> to <code class="docutils literal notranslate"><span class="pre">88</span></code>, it is passed to <a class="reference internal" href="reference/pyproject_model.html#pysen.pyproject_model.LintConfig" title="pysen.pyproject_model.LintConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">pysen.pyproject_model.LintConfig</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tool.pysen.plugin</span></code> corresponds to <a class="reference internal" href="reference/pyproject_model.html#pysen.pyproject_model.PluginConfig" title="pysen.pyproject_model.PluginConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">pysen.pyproject_model.PluginConfig</span></code></a></p></li>
+</ul>
+<p>You can know what you can change a configuration by checking <a class="reference internal" href="reference/pyproject_model.html#pysen.pyproject_model.Config" title="pysen.pyproject_model.Config"><code class="xref py py-class docutils literal notranslate"><span class="pre">Config</span></code></a>,
+<a class="reference internal" href="reference/pyproject_model.html#pysen.pyproject_model.LintConfig" title="pysen.pyproject_model.LintConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">LintConfig</span></code></a>, and <a class="reference internal" href="reference/pyproject_model.html#pysen.pyproject_model.PluginConfig" title="pysen.pyproject_model.PluginConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">PluginConfig</span></code></a>.</p>
+<p>If a entry is not an instance of Python built-in class, it cannot be directly specified.
+For example, <code class="docutils literal notranslate"><span class="pre">mypy_targets</span></code> corresponds to <a class="reference internal" href="reference/ext/mypy.html#pysen.ext.mypy_wrapper.MypyTarget" title="pysen.ext.mypy_wrapper.MypyTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">pysen.ext.mypy_wrapper.MypyTarget</span></code></a>, which is not a Python built-in (or equivarent to built-in) class.
+To configure such option, you need to create a section <code class="docutils literal notranslate"><span class="pre">[[tool.pysen.lint.mypy_targets]]</span></code>.
+<a class="reference internal" href="reference/ext/mypy.html#pysen.ext.mypy_wrapper.MypyPlugin" title="pysen.ext.mypy_wrapper.MypyPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">MypyPlugin</span></code></a> has parameters <code class="docutils literal notranslate"><span class="pre">paths</span></code> and <code class="docutils literal notranslate"><span class="pre">namespace_packages</span></code>.
+Since <code class="docutils literal notranslate"><span class="pre">paths</span></code> is equivarent to <code class="docutils literal notranslate"><span class="pre">str</span></code> and <code class="docutils literal notranslate"><span class="pre">namespace_packages</span></code> is <code class="docutils literal notranslate"><span class="pre">bool</span></code>, you can set them in the section.
+Note that <code class="docutils literal notranslate"><span class="pre">namespace_packages</span></code> is omitted since it is <code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code> by default.</p>
 </section>
 <section id="reference">
 <h1>reference<a class="headerlink" href="#reference" title="Permalink to this headline">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="reference/ext/index.html">pysen.ext</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reference/ext/black.html">black</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference/ext/flake8.html">flake8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference/ext/isort.html">isort</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference/ext/mypy.html">mypy</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/ext/index.html">pysen.ext</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/factory.html">pysen.factory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/mypy.html">pysen.mypy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/py_version.html">pysen.py_version</a></li>
