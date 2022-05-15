@@ -165,13 +165,6 @@
   <a class="reference internal nav-link" href="#id1">
    Overview
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exception">
-     Exception
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -240,17 +233,6 @@ To configure such option, you need to create a section <code class="docutils lit
 <a class="reference internal" href="reference/ext/mypy.html#pysen.ext.mypy_wrapper.MypyPlugin" title="pysen.ext.mypy_wrapper.MypyPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">MypyPlugin</span></code></a> has parameters <code class="docutils literal notranslate"><span class="pre">paths</span></code> and <code class="docutils literal notranslate"><span class="pre">namespace_packages</span></code>.
 Since <code class="docutils literal notranslate"><span class="pre">paths</span></code> is equivarent to <code class="docutils literal notranslate"><span class="pre">str</span></code> and <code class="docutils literal notranslate"><span class="pre">namespace_packages</span></code> is <code class="docutils literal notranslate"><span class="pre">bool</span></code>, you can set them in the section.
 Note that <code class="docutils literal notranslate"><span class="pre">namespace_packages</span></code> is omitted since it is <code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code> by default.</p>
-<section id="exception">
-<h3>Exception<a class="headerlink" href="#exception" title="Permalink to this headline">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">version</span></code> in <code class="docutils literal notranslate"><span class="pre">[tool.pysen]</span></code> and <code class="docutils literal notranslate"><span class="pre">py_version</span></code> in <code class="docutils literal notranslate"><span class="pre">[tool.pysen.lint]</span></code> are single strings
-although they are <a class="reference internal" href="reference/py_version.html#pysen.py_version.VersionRepresentation" title="pysen.py_version.VersionRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">VersionRepresentation</span></code></a> and
-<a class="reference internal" href="reference/py_version.html#pysen.py_version.PythonVersion" title="pysen.py_version.PythonVersion"><code class="xref py py-class docutils literal notranslate"><span class="pre">PythonVersion</span></code></a>, which have <code class="docutils literal notranslate"><span class="pre">major</span></code>, <code class="docutils literal notranslate"><span class="pre">minor</span></code>,
-<code class="docutils literal notranslate"><span class="pre">patch</span></code>, and <code class="docutils literal notranslate"><span class="pre">pre_release</span></code> as their attributes.</p>
-<p><a class="reference internal" href="reference/py_version.html#pysen.py_version.VersionRepresentation" title="pysen.py_version.VersionRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">VersionRepresentation</span></code></a></p>
-<p>Specify a pysen version (e.g. <code class="docutils literal notranslate"><span class="pre">0.10.2</span></code>).</p>
-<p><a class="reference internal" href="reference/py_version.html#pysen.py_version.PythonVersion" title="pysen.py_version.PythonVersion"><code class="xref py py-class docutils literal notranslate"><span class="pre">PythonVersion</span></code></a></p>
-<p>Specify one of <code class="docutils literal notranslate"><span class="pre">py27</span></code>, <code class="docutils literal notranslate"><span class="pre">py36</span></code>, <code class="docutils literal notranslate"><span class="pre">py37</span></code>, <code class="docutils literal notranslate"><span class="pre">py38</span></code>, <code class="docutils literal notranslate"><span class="pre">py39</span></code>, or <code class="docutils literal notranslate"><span class="pre">py310</span></code>.</p>
-</section>
 </section>
 </section>
 
